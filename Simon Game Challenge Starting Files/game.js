@@ -1,7 +1,3 @@
-let gamePattern = []
-
-let userClickedPattern = []
-
 var buttonColors = [
   "red",
   "blue",
@@ -9,8 +5,23 @@ var buttonColors = [
   "yellow"
 ]
 
+let gamePattern = []
+
+let userClickedPattern = []
 
 
+//store previously pressed colors
+
+$(document).ready (function () {
+  $('.btn').click(function() {
+    var userChosenColor = $(this).attr('id');
+    userClickedPattern.push(userChosenColor);
+    console.log(userClickedPattern)
+    console.log("test")
+  })
+  })
+
+//random number and animation
 function nextSequence() {
   var randomNumber = Math.floor(Math.random() * 4 )
   let randomChosenColor = buttonColors[randomNumber]
@@ -22,16 +33,5 @@ function nextSequence() {
   audio.play();
 
 }
-
-//working on this vv
-
-
-$(document).ready ( function () {
-$("button").click(function() {
-  var userChosenColor = $(this).attr("id")
-  userClickedPattern.push(userChosenColor);
-  console.log(userClickedPattern)
-})
-})
 
 nextSequence();
